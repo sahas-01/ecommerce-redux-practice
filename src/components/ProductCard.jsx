@@ -1,10 +1,21 @@
 import React from 'react'
 import { ReactComponent as HeartIcon } from "../assets/heart.svg";
 import { ReactComponent as CartIcon } from "../assets/add-to-cart.svg";
+import { useNavigate } from 'react-router-dom';
 
 const ProductCard = () => {
+  const navigate = useNavigate();
+
+  const handleRedirect = () => {
+    navigate('/product/1')
+  }
+
   return (
-    <div className="border bg-white shadow-sm">
+    <div 
+    onClick={
+      handleRedirect
+    }
+    className="border bg-white shadow-sm hover:cursor-pointer">
       <img
         src="https://img.freepik.com/free-psd/isolated-white-t-shirt-front-view_125540-1194.jpg"
         alt="productimg"
