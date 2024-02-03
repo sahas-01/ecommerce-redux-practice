@@ -1,35 +1,33 @@
-import React from 'react'
+import React from 'react';
 import { ReactComponent as HeartIcon } from "../assets/heart.svg";
 import { ReactComponent as CartIcon } from "../assets/add-to-cart.svg";
 import { useNavigate } from 'react-router-dom';
 
-const ProductCard = () => {
+const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
   const handleRedirect = () => {
-    navigate('/product/1')
+    navigate(`/product/${product.id}`);
   }
 
   return (
-    <div 
-    onClick={
-      handleRedirect
-    }
-    className="border bg-white shadow-sm hover:cursor-pointer">
+    <div
+      onClick={handleRedirect}
+      className="border bg-white shadow-sm hover:cursor-pointer">
       <img
-        src="https://img.freepik.com/free-psd/isolated-white-t-shirt-front-view_125540-1194.jpg"
+        src={product?.image || "https://img.freepik.com/free-psd/isolated-white-t-shirt-front-view_125540-1194.jpg"}
         alt="productimg"
-        className="transform group-hover:scale-125 group-hover:rotate-6 transition duration-200"
+        className="h-36 w-64 object-cover object-center object-fit"
       />
       <div className="p-4">
         <p className="text-sm">
-          T-Shirt for formal men
+          {product?.title || "T-shirt for formal"}
         </p>
         <p className="text-xs font-bold">
-          $ 200
+          ₹ {product?.amount || 200}
         </p>
         <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-sm">
-          4.0
+          {product?.rating || 5}
         </span>
         <div className="flex justify-between items-center mt-10">
           <HeartIcon className="h-6 w-6" />
@@ -40,4 +38,4 @@ const ProductCard = () => {
   )
 }
 
-export default ProductCard
+export default ProductCard;

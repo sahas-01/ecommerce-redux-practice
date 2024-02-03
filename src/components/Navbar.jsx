@@ -4,7 +4,7 @@ const Navbar = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
-        <header className="bg-blue-500 relative w-full z-50 px-10 md:px-24 sticky top-0 h-[72px] shadow-lg">
+        <header className="bg-blue-500 relative w-full z-50 px-10 md:px-64 sticky top-0 h-[72px] shadow-lg">
             <div className="mx-auto flex items-center justify-between py-4">
                 <h1 className={`text-white text-xl font-bold cursor-pointer`}>
                     <a href='/'>ShopKart.</a>
@@ -28,7 +28,7 @@ const Navbar = () => {
                         <a href='/products'>Products</a>
                     </li>
                     <li className={`text-white text-sm font-medium cursor-pointer list-none`}>
-                        <a href='/login'>Login</a>
+                        <a href='/'>Login</a>
                     </li>
                 </nav>
             </div>
