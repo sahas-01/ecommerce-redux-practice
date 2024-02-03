@@ -13,7 +13,15 @@ const Login = () => {
                         <input type="password" placeholder="Password" className="p-3 bg-gray-100 border-none outline-none rounded-full" />
                         <div className='flex items-center gap-x-2 justify-between'>
                             <p className="text-sm text-blue-500 w-64">New user? Create an account</p>
-                            <button className="bg-blue-500 text-white p-2 w-full rounded-full">Login</button>
+                            <button 
+                            onClick={
+                                () => {
+                                    //redirect to /products
+                                    window.location.href = '/products'
+                                }
+                            
+                            }
+                            className="bg-blue-500 text-white p-2 w-full rounded-full">Login</button>
                         </div>
                     </form>
                 </div>
