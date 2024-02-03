@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import ProductCard from '../components/ProductCard'
-import PriceDetails from '../components/PriceDetails'
 
 const Products = () => {
     return (
