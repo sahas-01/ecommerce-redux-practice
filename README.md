@@ -9,7 +9,14 @@ To implement an eCommerce application which lists all products and ability to vi
 - [x] List all products
 - [x] View details of a particular product
 - [x] Add products to cart
-- [x] Buy products
+- [x] Buy product
+
+
+### Tech stack
+- ReactJS
+- TailwindCSS
+- Redux
+- json-server
 
 
 ### Instructions to run
