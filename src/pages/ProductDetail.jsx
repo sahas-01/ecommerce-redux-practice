@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
+import { add } from "../redux/Slices/cartSlice";
+import { useDispatch } from "react-redux";
 
 const ProductDetail = () => {
+    const dispatch = useDispatch();
 
     //get the id from the url
     const [product, setProduct] = useState({})
@@ -21,6 +24,28 @@ const ProductDetail = () => {
     }
         , [id])
 
+    const handleBuy = async () => {
+        const res = await fetch(`http://localhost:3001/orders`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                items: [product],
+                amount: parseInt(product.amount),
+            }),
+        });
+        const data = await res.json();
+        console.log("data", data);
+        //clear the cart
+        window.location.href = "/products";
+    }
+
+    const handleAddCart = () => {
+        console.log("product", product);
+        dispatch(add(product));
+    };
+
 
     return (
         <>
@@ -30,6 +55,7 @@ const ProductDetail = () => {
                     <img
                         src={product?.image || "https://img.freepik.com/free-psd/isolated-white-t-shirt-front-view_125540-1194.jpg"}
                         alt='productimg'
+                        className='h-96 w-96 object-cover object-center object-fit'
                     />
                 </div>
                 <div className="border-r border-gray-300 h-96 mr-8"></div>
@@ -44,10 +70,14 @@ const ProductDetail = () => {
                     </p>
                     <p className='text-lg font-bold my-5'>₹ {product?.amount || 200}</p>
                     <div className='flex gap-x-10 my-3'>
-                        <button className='bg-transparent border-black border-2 py-4 px-10'>
+                        <button
+                            onClick={handleBuy}
+                            className='bg-transparent border-black border-2 py-4 px-10'>
                             Buy Now
                         </button>
-                        <button className='bg-black text-white py-4 px-10'>
+                        <button
+                            onClick={handleAddCart}
+                            className='bg-black text-white py-4 px-10'>
                             Add to Basket
                         </button>
                     </div>

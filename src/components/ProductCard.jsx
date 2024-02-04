@@ -41,36 +41,38 @@ const ProductCard = ({ product }) => {
 
   return (
     <div
-      // onClick={handleRedirect}
-      className="border bg-white shadow-sm hover:cursor-pointer">
+      className="border bg-white shadow-sm">
       <img
         src={product?.image || "https://img.freepik.com/free-psd/isolated-white-t-shirt-front-view_125540-1194.jpg"}
         alt="productimg"
         className="h-36 w-64 object-cover object-center object-fit"
       />
-      <div className="p-4">
-        <p className="text-sm">
+      <div className="p-4 flex flex-col flex-grow">
+        <p className="text-sm my-2">
           {product?.title || "T-shirt for formal"}
         </p>
         <p className="text-xs font-bold">
           ₹ {product?.amount || 200}
         </p>
-        <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-sm">
-          {product?.rating || 5}
-        </span>
+        <div className='flex items-center gap-x-2 my-1.5'>
+          <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-sm">
+            {product?.rating || 5}
+          </span>
+          <button onClick={handleRedirect} className="text-blue-500 text-xs">View Details</button>
+        </div>
         <div className="flex justify-between items-center mt-10">
           <HeartIcon
             onClick={handleFavorite}
-            className="h-6 w-6" />
+            className="h-6 w-6 cursor-pointer" />
           {cart.some((p) => p.id === product.id) ? (
             <button
-              className="text-blue-700 text-sm border-2 border-blue-700 rounded-lg font-semibold px-1 py-1"
+              className="text-blue-700 cursor-pointer text-sm border-2 border-blue-700 rounded-lg font-semibold px-1 py-1"
               onClick={removeFromCart}
             >
               Remove item
             </button>
           ) : (
-            <CartIcon className="h-6 w-6" onClick={addToCart} />
+            <CartIcon className="h-6 w-6 cursor-pointer" onClick={addToCart} />
           )}
         </div>
       </div>
