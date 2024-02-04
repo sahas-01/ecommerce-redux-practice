@@ -25,6 +25,20 @@ const ProductCard = ({ product }) => {
     navigate(`/product/${product.id}`);
   }
 
+  const handleFavorite = async () => {
+    const res = await fetch(`http://localhost:3001/favourites`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        product
+      }),
+    });
+    const data = await res.json();
+    console.log("data", data);
+  }
+
   return (
     <div
       // onClick={handleRedirect}
@@ -45,12 +59,19 @@ const ProductCard = ({ product }) => {
           {product?.rating || 5}
         </span>
         <div className="flex justify-between items-center mt-10">
-          <HeartIcon className="h-6 w-6" />
-          <CartIcon
-            onClick={
-              addToCart
-            }
+          <HeartIcon
+            onClick={handleFavorite}
             className="h-6 w-6" />
+          {cart.some((p) => p.id === product.id) ? (
+            <button
+              className="text-blue-700 text-sm border-2 border-blue-700 rounded-lg font-semibold px-1 py-1"
+              onClick={removeFromCart}
+            >
+              Remove item
+            </button>
+          ) : (
+            <CartIcon className="h-6 w-6" onClick={addToCart} />
+          )}
         </div>
       </div>
     </div>

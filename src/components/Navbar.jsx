@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
+import { ReactComponent as CartIcon } from "../assets/cart-logo-black.svg";
 
 const Navbar = () => {
     const { cart } = useSelector((state) => state);
@@ -28,15 +29,17 @@ const Navbar = () => {
                 }
                 <nav className="hidden md:flex items-end gap-x-11">
                     <li className={`flex text-white text-sm font-medium cursor-pointer list-none`}>
-                        <a href='/products'>Products</a>
+                        <Link to='/products'>Products</Link>
                     </li>
                     <li className={`text-white text-sm font-medium cursor-pointer list-none`}>
                         <a href='/'>Login</a>
                     </li>
-                    <li className="flex items-center gap-x-3">
-                        <Link to='/mycart'>
-                            <span className="text-white text-sm font-medium cursor-pointer list-none">Cart</span>
-                            <span className="text-white text-sm font-medium cursor-pointer list-none">({cart.length})</span>
+                    <li className="relative flex items-center gap-x-3">
+                        <Link to='/mycart' className="relative">
+                            <CartIcon className="h-5 w-5" />
+                            <span className="absolute -top-2 -right-5 inline-flex items-center justify-center px-1.5 py-0.5 rounded-full bg-red-500 text-xs text-white">
+                                {cart.length}
+                            </span>
                         </Link>
                     </li>
                 </nav>
