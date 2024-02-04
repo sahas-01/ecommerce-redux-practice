@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useSelector } from "react-redux";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-
+    const { cart } = useSelector((state) => state);
+    console.log("cart", cart);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
         <header className="bg-blue-500 relative w-full z-50 px-10 md:px-64 sticky top-0 h-[72px] shadow-lg">
@@ -29,6 +32,12 @@ const Navbar = () => {
                     </li>
                     <li className={`text-white text-sm font-medium cursor-pointer list-none`}>
                         <a href='/'>Login</a>
+                    </li>
+                    <li className="flex items-center gap-x-3">
+                        <Link to='/mycart'>
+                            <span className="text-white text-sm font-medium cursor-pointer list-none">Cart</span>
+                            <span className="text-white text-sm font-medium cursor-pointer list-none">({cart.length})</span>
+                        </Link>
                     </li>
                 </nav>
             </div>

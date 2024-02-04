@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import MyCartItem from '../components/MyCartItem'
 import PriceDetails from '../components/PriceDetails'
+import { useSelector } from 'react-redux'
+
 
 const MyCart = () => {
+
+    const cart = useSelector((state) => state.cart);
+    console.log("cart", cart);
+
+    const [totalAmount, setTotalAmount] = useState(0);
+    useEffect(() => {
+        setTotalAmount(cart.reduce((acc, curr) => acc + parseInt(curr.amount), 0));
+    }, [cart]);
+
+
     return (
         <>
             <Navbar />
@@ -13,7 +25,7 @@ const MyCart = () => {
                     <MyCartItem />
                     <MyCartItem />
                 </section>
-                <PriceDetails />
+                <PriceDetails totalAmount={totalAmount}/>
             </div>
             <button className="bg-blue-500 text-white text-sm px-2.5 py-2 mx-36 rounded-sm">PLACE ORDER</button>
         </>

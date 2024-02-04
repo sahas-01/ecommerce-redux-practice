@@ -59,6 +59,11 @@
       "id": "72ab",
       "email": "ello@12.com",
       "password": "Hello123"
+    },
+    {
+      "id": "9d3b",
+      "email": "sahas@123",
+      "password": "Hello124"
     }
   ],
   "products": [
