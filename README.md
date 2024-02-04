@@ -20,6 +20,7 @@ To implement an eCommerce application which lists all products and ability to vi
 ![image](https://github.com/sahas-01/ecommerce-tanx/assets/72225300/65515ca1-6b4b-4626-9e35-7b971f4f9b9c)
 - ### Buy product
   Once the user has added items to the cart, he/she can place the order, this data is written onto the orders[] array in db.json
+  ![image](https://github.com/sahas-01/ecommerce-tanx/assets/72225300/d2a629ff-1b3c-4e77-ab87-7a738d4e51fd)
 - ### Favorite product
   A simple feature to allow a user to choose his/her favorite products, these details are saved onto favourites[] in db.json
 
@@ -29,6 +30,13 @@ To implement an eCommerce application which lists all products and ability to vi
 - TailwindCSS
 - Redux toolkit
 - json-server
+
+### Shortcomings
+Owing to lack of time, the following are some of the drawbacks of this product:
+- Inability to add duplicates of the same product
+- Lack of clarity such as success toasts, error toasts, etc.
+- No functionality for searching and filtering of products
+- A particular user will have certain orders, for now they are not mapped, but if time permits for a user, can have orders[] which would list all orders of that particular user
 
 
 ### Instructions to run
