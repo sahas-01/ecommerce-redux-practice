@@ -13,6 +13,9 @@ const Navbar = () => {
                 <h1 className={`text-white text-xl font-bold cursor-pointer`}>
                     <a href='/'>ShopKart.</a>
                 </h1>
+                {/* <div className='flex justify-center items-center gap-x-3'>
+                    <input type="text" placeholder="Search for products" className="px-2 py-1.5 bg-gray-100 border-none outline-none rounded-full" />
+                </div> */}
                 {
                     isMenuOpen && (
                         <div className="absolute top-[72px] left-0 w-full bg-navbarBg z-50">

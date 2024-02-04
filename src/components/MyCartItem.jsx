@@ -1,6 +1,15 @@
 import React from 'react'
+import { add, remove } from "../redux/Slices/cartSlice";
+import { useDispatch } from "react-redux";
+
 
 const MyCartItem = ({ item }) => {
+    const dispatch = useDispatch();
+    
+    const removeFromCart = () => {
+        dispatch(remove(item.id));
+    };
+
     return (
         <div className="flex bg-white p-5">
             <img
@@ -25,7 +34,9 @@ const MyCartItem = ({ item }) => {
                 <div className="flex items-center gap-x-2">
                     <button className="p-1 rounded-sm">+</button>
                     <p>1</p>
-                    <button className="p-1 rounded-sm">-</button>
+                    <button 
+                    onClick={removeFromCart}
+                    className="p-1 rounded-sm">-</button>
                 </div>
             </div>
         </div>
