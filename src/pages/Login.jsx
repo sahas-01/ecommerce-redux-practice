@@ -23,6 +23,7 @@ const Login = () => {
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
+                localStorage.setItem('user', JSON.stringify(data));
                 window.location.href = '/products';
             })
             .catch((error) => {

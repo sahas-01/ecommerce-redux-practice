@@ -32,16 +32,27 @@ const Navbar = () => {
                         <Link to='/products'>Products</Link>
                     </li>
                     <li className={`text-white text-sm font-medium cursor-pointer list-none`}>
-                        <a href='/'>Login</a>
+                        {
+                            localStorage.getItem('user') ?
+                                <Link
+                                    onClick={() => {
+                                        localStorage.removeItem('user');
+                                        window.location.href = '/';
+                                    }}>Logout</Link> : <Link to='/login'>Login</Link>
+                        }
                     </li>
-                    <li className="relative flex items-center gap-x-3">
-                        <Link to='/mycart' className="relative">
-                            <CartIcon className="h-5 w-5" />
-                            <span className="absolute -top-2 -right-5 inline-flex items-center justify-center px-1.5 py-0.5 rounded-full bg-red-500 text-xs text-white">
-                                {cart.length}
-                            </span>
-                        </Link>
-                    </li>
+                    {
+                        localStorage.getItem('user') && (
+                            <li className="relative flex items-center gap-x-3">
+                                <Link to='/mycart' className="relative">
+                                    <CartIcon className="h-5 w-5" />
+                                    <span className="absolute -top-2 -right-5 inline-flex items-center justify-center px-1.5 py-0.5 rounded-full bg-red-500 text-xs text-white">
+                                        {cart.length}
+                                    </span>
+                                </Link>
+                            </li>
+                        )
+                    }
                 </nav>
             </div>
         </header>
