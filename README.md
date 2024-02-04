@@ -33,6 +33,7 @@ To implement an eCommerce application which lists all products and ability to vi
 
 ### Shortcomings
 Owing to lack of time, the following are some of the drawbacks of this product:
+- Direct login, no signup functionality
 - Inability to add duplicates of the same product
 - Lack of clarity such as success toasts, error toasts, etc.
 - No functionality for searching and filtering of products
