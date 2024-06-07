@@ -1,7 +1,7 @@
 ## Ecommerce application - Frontend
 
 ### Objective
-To implement an eCommerce application which lists all products and ability to view each product in detail. Apart from this, the user should be able to add products to the cart and then place the order
+To implement an eCommerce application using Reactjs and Redux which lists all products and ability to view each product in detail. Apart from this, the user should be able to add products to the cart and then place the order
 
 
 ### Features
